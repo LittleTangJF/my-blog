@@ -45,7 +45,7 @@ async function getSiteMapData() {
   let body = list.map(item => {
     return `
     <url>
-     <loc>https://blogweb.cn/${item.router}</loc>
+     <loc>http://119.91.156.37/${item.router}</loc>
      <priority>${item.weight}</priority>
      <lastmod>${moment(item.time || new Date()).format("YYYY-MM-DD")}</lastmod>
      <changefreq>weekly</changefreq>

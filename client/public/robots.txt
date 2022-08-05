@@ -3,4 +3,4 @@ Disallow:/user
 Disallow:/set
 Disallow:/write
 Disallow:/search
-Sitemap:https://blogweb.cn/sitemap.xml
+Sitemap:http://119.91.156.37/sitemap.xml

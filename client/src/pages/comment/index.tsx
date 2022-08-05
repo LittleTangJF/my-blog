@@ -36,13 +36,15 @@ const CommentPage: FunctionComponent = () => {
         <p>也可以反馈您的问题</p>
       </Card>
       <Card>
-        <p>如果您想要互换友链，可以参考以下信息将本站信息添加到您的网站上后在评论区留言</p>
+        <p>
+          如果您想要互换友链，可以参考以下信息将本站信息添加到您的网站上后在评论区留言
+        </p>
         <blockquote>
           <ol>
             <li>网站名称:前端路上-技术博客</li>
-            <li>网站地址:https://blogweb.cn</li>
+            <li>网站地址:http://119.91.156.37</li>
             <li>网站描述:原创前端技术博客</li>
-            <li>Logo地址:https://blogweb.cn/favicon.ico</li>
+            <li>Logo地址:http://119.91.156.37/favicon.ico</li>
           </ol>
         </blockquote>
       </Card>

@@ -5,7 +5,7 @@ import { getGithubProjectData } from "@/request";
 import type { githubProjectTypes } from "@/types";
 import Image from "next/image";
 import Skeleton from "./Skeleton";
-import Links from './Links';
+import Links from "./Links";
 import If from "@/utils/If";
 import NoSSR from "@/utils/NoSSR";
 const Style = css`
@@ -69,7 +69,7 @@ const Style = css`
 const Action = () => {
   const [githubData, setGithubData] = useState<githubProjectTypes[]>([]);
   useEffect(() => {
-    getGithubProjectData().then(res => {
+    getGithubProjectData().then((res) => {
       setGithubData(res);
     });
   }, []);
@@ -82,8 +82,8 @@ const Action = () => {
             <NoSSR children={<GithubOutlined />} />
             <span>我的GitHub</span>
           </h3>
-          <If if={githubData.length} else={<Skeleton />}>
-            {githubData.map(item => (
+          {/* <If if={githubData.length} else={<Skeleton />}>
+            {githubData.map((item) => (
               <a
                 href={item.url}
                 key={item.id}
@@ -94,9 +94,13 @@ const Action = () => {
                 {item.name}
               </a>
             ))}
-          </If>
+          </If> */}
 
-          <a href="https://github.com/Lrunlin" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/LittleTangJF"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Image
               src="/image/github.png"
               width={230}
@@ -114,15 +118,15 @@ const Action = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              辽ICP备2020014377号-2
+              三人行必有我师
             </a>
-            <div>Copyright © 2021- 刘润霖</div>
+            <div>Copyright © 2022- 松子</div>
           </div>
           <div className="aside-body_data_friend">
             <h3>友情链接</h3>
             <p> 交换友情链接请在【随便说说】模块中留言</p>
           </div>
-          <Links/>
+          {/* <Links /> */}
         </div>
       </aside>
     </>

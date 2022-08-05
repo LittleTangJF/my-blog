@@ -3,17 +3,22 @@ import BarHeader from "@/components/design/BarHeader";
 import { Button, Image } from "antd";
 import { getGithubProjectData } from "@/request";
 import { githubProjectTypes } from "@/types";
-import axios from 'axios'
+import axios from "axios";
 interface maskTypes {
   data: githubProjectTypes;
   setIsPreview: (value: boolean) => void;
 }
 
-const Mask: FunctionComponent<maskTypes> = props => {
+const Mask: FunctionComponent<maskTypes> = (props) => {
   return (
     <div>
       <div>
-        <Button ghost href={props.data.url} target="_blank" onClick={e => e.stopPropagation()}>
+        <Button
+          ghost
+          href={props.data.url}
+          target="_blank"
+          onClick={(e) => e.stopPropagation()}
+        >
           项目查看
         </Button>
       </div>
@@ -44,8 +49,13 @@ const Item: FunctionComponent<githubProjectTypes> = (props): JSX.Element => {
           width={200}
           preview={{
             visible: isPreview,
-            onVisibleChange: vis => setIsPreview(vis),
-            mask: <Mask data={props} setIsPreview={value => setIsPreview(value)} />,
+            onVisibleChange: (vis) => setIsPreview(vis),
+            mask: (
+              <Mask
+                data={props}
+                setIsPreview={(value) => setIsPreview(value)}
+              />
+            ),
           }}
           src={`${axios.defaults.baseURL}/image/github/${props.id}.webp`}
           alt="样例展示图"
@@ -59,7 +69,7 @@ const Item: FunctionComponent<githubProjectTypes> = (props): JSX.Element => {
 const Example: FunctionComponent = () => {
   const [data, setData] = useState<githubProjectTypes[]>([]);
   useEffect(() => {
-    getGithubProjectData().then(res => {
+    getGithubProjectData().then((res) => {
       setData(res);
     });
   }, []);
@@ -91,7 +101,7 @@ const Example: FunctionComponent = () => {
           }
         `}
       </style>
-      <div className="example-container">
+      {/* <div className="example-container">
         <BarHeader id="example" titleEn="MY WORKS" title="精选·案例" />
         <p className="example-messgae">
           以下来源于个人
@@ -104,7 +114,7 @@ const Example: FunctionComponent = () => {
             return <Item {...item} key={item.id} />;
           })}
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

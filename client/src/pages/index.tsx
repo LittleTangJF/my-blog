@@ -27,7 +27,7 @@ const Style = css.resolve`
     justify-content: space-between;
   }
 `;
-const Index: NextPage<propsTypes> = props => {
+const Index: NextPage<propsTypes> = (props) => {
   const [data, setData] = useState<articlePageTypes[]>(props.article);
   /** 是否还有更多的数据*/
   const [total, setTotal] = useState(props.total);
@@ -35,7 +35,10 @@ const Index: NextPage<propsTypes> = props => {
   const type = useRef("");
 
   /**根据要求获取对应的文章 type为查询某个类型的第一页文章，page为换页*/
-  const refreshData = async (method: "page" | "type", value?: string | number) => {
+  const refreshData = async (
+    method: "page" | "type",
+    value?: string | number
+  ) => {
     if (method == "type") {
       type.current = value as string;
       page.current = 1;
@@ -55,10 +58,18 @@ const Index: NextPage<propsTypes> = props => {
       <Head
         title="前端路上-技术博客 | 网站Web前端"
         description="前端开发|Vue开发|毕业设计制作|NodeJs|WEB前端|前端路上-个人博客。原创前端技术博客，致力于分享前端学习路上的第一手资料。专注WEB前端开发、移动端开发、前端工程化、前端职业发展，做最有价值的前端技术学习网站,网站开放部分API接口,所有文章均为原创,并且分享可做项目类型和日常开源分享。"
-        keyword={["专注WEB开发", "前端开发", "前端自动化", "移动端开发", "个人博客"]}
+        keyword={[
+          "专注WEB开发",
+          "前端开发",
+          "前端自动化",
+          "移动端开发",
+          "个人博客",
+        ]}
       >
         {/* 如果是IP地址的话标注源站 */}
-        {!props.isOrigina && <link rel="canonical" href="https://blogweb.cn" />}
+        {!props.isOrigina && (
+          <link rel="canonical" href="http://119.91.156.37" />
+        )}
       </Head>
       <Aside type={props.type} refreshData={refreshData} />
       <section style={{ width: "100%", margin: "0px 10px" }}>
@@ -78,7 +89,7 @@ const Index: NextPage<propsTypes> = props => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async context => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   let type = await getType();
   let res = await getPageArticleData(
     1,
